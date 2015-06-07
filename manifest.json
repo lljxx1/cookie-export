@@ -1,0 +1,20 @@
+{   
+    "icons": {
+      "128": "images/icon_128.png",
+      "16": "images/icon_16.png"
+    },
+    "browser_action": {
+      "all_frames": true,
+      "default_popup": "poup.html",
+      "default_title": "Cookies export"
+    },
+    "converted_from_user_script": true,  
+    "description": "Cookies export for Phantomjs",  
+    "default_locale": "en",
+    "manifest_version": 2,
+    "options_page": "options.html",
+    "key": "Z4J7QteIhzSDb9vypy63EZ85P08k8FIg0jgIDtmV4UI=",  
+    "name": "Cookies export",  
+    "permissions": [ "cookies","http://*/*", "https://*/*" ],
+    "version": "1.0"  
+ }

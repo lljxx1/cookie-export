@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cookies export</title>
+    <script type="text/javascript" src="polyfill.js"></script>
+    <style type="text/css">
+        #cookies{
+            font: 13px/2 "Helvetica Neue",Helvetica,"Microsoft YaHei",Arial;
+        }
+    </style>
+</head>
+<body>
+    <div id="cookies"></div>
+    <script type="text/javascript">
+    chrome.cookies.getAll({},  function(cookies){ 
+        show(cookies);
+    })
+
+    function transform(cookies){
+        return cookies.map(function(cookie){
+            var nCookie = {};
+            nCookie['domain']   = cookie['domain'];
+            nCookie['expiry']   = parseInt(cookie['expirationDate']);
+            nCookie['name']     = cookie['name'];
+            nCookie['path']     = cookie['path'];
+            nCookie['httponly'] = cookie['httpOnly'];
+            nCookie['secure']   = cookie['secure'];
+            nCookie['value']    = cookie['value'];
+            return nCookie;
+        });
+    }
+
+    function show(cookies){
+        cookies = transform(cookies);
+        document.getElementById('cookies').innerHTML = JSON.stringify(cookies);
+    }
+    </script>
+</body>
+</html>
